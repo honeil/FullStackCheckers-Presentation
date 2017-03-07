@@ -1,8 +1,10 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import {CheckerboardPage } from '../pages/checkerboard/checkerboard';
+import { CheckerboardPage } from '../pages/checkerboard/checkerboard';
+import { MoveService } from '../services/move-service';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,6 @@ import {CheckerboardPage } from '../pages/checkerboard/checkerboard';
     HomePage,
     CheckerboardPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, MoveService]
 })
 export class AppModule {}
