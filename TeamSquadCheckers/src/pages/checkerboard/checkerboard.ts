@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { MoveService } from '../../services/move-service';
+
 /*
   Generated class for the Checkerboard page.
 
@@ -13,10 +15,26 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CheckerboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckerboardPage');
   }
 
+  testMoveService(){
+    this.moveService.submitMove('A1', 'B2');
+    console.log('Move submitted');
+  }
+  onClick(event){
+    let firstCoordinate: any; 
+    let secondCoordinate: any;
+    if (firstCoordinate == undefined){
+      firstCoordinate = event.id;
+    } else if (event.id == firstCoordinate) {
+      firstCoordinate == undefined;
+    } else {
+      secondCoordinate == event.id;
+    }
+  }
 }
