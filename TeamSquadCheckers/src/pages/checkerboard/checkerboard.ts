@@ -14,7 +14,8 @@ import { MoveService } from '../../services/move-service';
   templateUrl: 'checkerboard.html'
 })
 export class CheckerboardPage {
-
+    public firstCoordinate: any; 
+    public secondCoordinate: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
   }
   
@@ -26,15 +27,23 @@ export class CheckerboardPage {
     this.moveService.submitMove('A1', 'B2');
     console.log('Move submitted');
   }
-  onClick(event){
-    let firstCoordinate: any; 
-    let secondCoordinate: any;
-    if (firstCoordinate == undefined){
-      firstCoordinate = event.id;
-    } else if (event.id == firstCoordinate) {
-      firstCoordinate == undefined;
+  captureCoordinate(event){
+    if (this.firstCoordinate == undefined){
+      this.firstCoordinate = event;
+      console.log(this.firstCoordinate);
+      console.log(this.secondCoordinate);
+    } else if (event == this.firstCoordinate) { 
+      this.firstCoordinate = undefined;
+      console.log(this.firstCoordinate);
+      console.log(this.secondCoordinate);
     } else {
-      secondCoordinate == event.id;
+      console.log("assigning 2nd coor");
+      this.secondCoordinate = event;
+      console.log(this.firstCoordinate);
+      console.log(this.secondCoordinate);
+      this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate);
+      this.firstCoordinate = undefined;
+      this.secondCoordinate = undefined;
     }
   }
 }

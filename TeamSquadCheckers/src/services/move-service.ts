@@ -5,11 +5,12 @@ import { Http } from '@angular/http';
 export class MoveService {
     private data: any;
     private responseData: any;
-    private url: string = "http://127.0.0.1:8080/movePiece";
+    private url: string = "127.0.0.1:8080/generateInitialBoardState";
 
     constructor(private http: Http){}
 
     submitMove(firstCoordinate: string, secondCoordinate: string) {
+       console.log(this.url);
         this.data = {
             "firstCoordinate": firstCoordinate,
             "secondCoordinate": secondCoordinate
