@@ -54,6 +54,8 @@ export class CheckerboardPage {
       return '../assets/Red.png';
     } else if (path == "BLACK_PIECE") {
       return '../assets/Black.png';
+    } else {
+      return '';
     }
   }
   
