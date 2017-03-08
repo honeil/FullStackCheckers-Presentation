@@ -14,24 +14,13 @@ import { MoveService } from '../../services/move-service';
   templateUrl: 'checkerboard.html'
 })
 export class CheckerboardPage {
-
-  showImage: boolean = false;
-  showImage1: boolean = false;
-  showImage2: boolean = false;
-  showImage3: boolean = false;
-  showImage4: boolean = false;
-  showImage5: boolean = false;
-  showImage6: boolean = false;
-  showImage7: boolean = false;
-  showImage8: boolean = false;
-  showImage9: boolean = false;
-  showImage10: boolean = false;
-  showImage11: boolean = false;
-  showImage12: boolean = false;
-  showImage13: boolean = false;
-  showImage14: boolean = false;
-  showImage15: boolean = false;
   gamepiece: string = '../../assets/Black.png';
+  gameMoves: any[] = [{
+    location: "A1" , piece: '../../assets/Red.png'
+  }
+  ]
+
+
   
 
 
@@ -60,7 +49,7 @@ export class CheckerboardPage {
 
   addBlackPiece(e){
     var img = document.createElement('img');
-    img.src = '../assets/Black.png';
+    img.src = '../assets/Red.png';
     console.log(e.target.id);
     document.getElementById(e.target.id).appendChild(img);
     
@@ -68,14 +57,14 @@ export class CheckerboardPage {
                img.parentNode.removeChild(img);
             });
     }
-
+/*
     toggleImage(e): void{
       this.showImage = !this.showImage;
     }
 
   }
 
-/* doesn't work
+//doesn't work
   removeBlackPiece(e){
     var img = document.createElement('img');
     img.src = '../assets/Black.png';
@@ -86,7 +75,7 @@ export class CheckerboardPage {
 */
   
   
-
+}
 
 
 
