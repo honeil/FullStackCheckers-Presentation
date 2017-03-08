@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector:'the-black-checker',
+    selector:'black-checker',
     template:`
         <div>
             <img src= '../../assets/Black.png'>

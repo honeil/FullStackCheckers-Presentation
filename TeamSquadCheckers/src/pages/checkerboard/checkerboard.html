@@ -117,19 +117,19 @@
       <ion-row>
 <!--        <ion-col class ='y'>3</ion-col> -->
       <ion-col class ='bl' id='A3'(click)='toggleImage($event)'>
-        <the-checker *ngIf='showImage9'></the-checker>
+        
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl' id='C3' (click)='toggleImage($event)'>
-        <the-checker *ngIf='showImage10'></the-checker>
+        
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl' id='E3'>
-        <the-checker *ngIf='showImage11'></the-checker>
+        
       </ion-col>
+
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl' id='G3'>
-        <the-checker *ngIf='showImage12'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
  <!--         <ion-col class ='y'>3</ion-col> -->
@@ -138,38 +138,43 @@
 <!--      <ion-col class ='y'>2</ion-col> -->
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='B2' (click)='showChecker()'>
-        <the-checker *ngIf='showImage5'></the-checker>
       </ion-col>
+
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='D2' (click)='toggleImage($event)'>
-        <the-checker *ngIf='showImage6'></the-checker>
       </ion-col>
+
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='F2'>
-        <the-checker *ngIf='showImage7'></the-checker>
+        
       </ion-col>
+
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='H2' (click)='toggleImage($event)'>
-        <the-checker *ngIf='showImage8'></the-checker>
+
       </ion-col>
  <!--     <ion-col class ='y'>2</ion-col> -->
   </ion-row>
       <ion-row>
  <!--       <ion-col class ='y'>1</ion-col> -->
       <ion-col class ='bl'id='A1' (click)='toggleImage($event)'>
-        <the-checker *ngIf='showImage1'></the-checker>
+        <red-checker *ngIf='showImage1'></red-checker>
+        <black-checker *ngIf='bshowImage1'></black-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='C1' (click)='addBlackPiece($event)'>
-        <the-checker *ngIf='showImage2'></the-checker>
+        <red-checker *ngIf='showImage2'></red-checker>
+        <black-checker *ngIf='bshowImage2'></black-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='E1' (click)='addBlackPiece($event)'>
-        <the-checker *ngIf='showImage3'></the-checker>
+        <red-checker *ngIf='showImage3'></red-checker>
+        <black-checker *ngIf='bshowImage3'></black-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='G1' (click)='addBlackPiece($event)'>
-        <the-checker *ngIf='showImage4'></the-checker>
+        <red-checker *ngIf='showImage4'></red-checker>
+        <black-checker *ngIf='bshowImage4'></black-checker>
       </ion-col>
       <ion-col class ='wh' ></ion-col>
 <!--          <ion-col class ='y'>1</ion-col> -->

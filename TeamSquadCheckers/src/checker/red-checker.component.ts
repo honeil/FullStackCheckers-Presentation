@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector:'the-red-checker',
+    selector:'red-checker',
     template:`
         <div>
             <img src= '../../assets/Red.png'>

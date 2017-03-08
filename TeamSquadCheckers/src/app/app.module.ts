@@ -5,7 +5,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CheckerboardPage } from '../pages/checkerboard/checkerboard';
 import { MoveService } from '../services/move-service';
-import { Checker } from '../checker/checker.component';
+import { RedChecker } from '../checker/red-checker.component';
+import { BlackChecker } from '../checker/black-checker.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { Checker } from '../checker/checker.component';
     MyApp,
     HomePage,
     CheckerboardPage,
-    Checker
+    RedChecker,
+    BlackChecker
   ],
   imports: [
     IonicModule.forRoot(MyApp)
