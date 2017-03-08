@@ -11,8 +11,7 @@ import { MoveService } from '../../services/move-service';
 */
 @Component({
   selector: 'page-checkerboard',
-  templateUrl: 'checkerboard.html',
-  providers: [MoveService]
+  templateUrl: 'checkerboard.html'
 })
 
 export class CheckerboardPage implements OnInit{
@@ -21,9 +20,69 @@ public data: any;
   }
 
   ngOnInit(){
-    this.data = this.moveService.getInitialState();
-    console.log("initialized");
-    console.log(this.data);
+    this.data = [{},{}];
+  }
+
+  initGame(){
+    this.data = [{},{
+                "G1": "RED_PIECE",
+                "H2": "RED_PIECE",
+                "E1": "RED_PIECE",
+                "F2": "RED_PIECE",
+                "G3": "RED_PIECE",
+                "C1": "RED_PIECE",
+                "D2": "RED_PIECE",
+                "E3": "RED_PIECE",
+                "H6": "BLACK_PIECE",
+                "A1": "RED_PIECE",
+                "B2": "RED_PIECE",
+                "C3": "RED_PIECE",
+                "F6": "BLACK_PIECE",
+                "G7": "BLACK_PIECE",
+                "H8": "BLACK_PIECE",
+                "A3": "RED_PIECE",
+                "D6": "BLACK_PIECE",
+                "E7": "BLACK_PIECE",
+                "F8": "BLACK_PIECE",
+                "B6": "BLACK_PIECE",
+                "C7": "BLACK_PIECE",
+                "D8": "BLACK_PIECE",
+                "A7": "BLACK_PIECE",
+                "B8": "BLACK_PIECE"
+    }]
+  }
+
+  stopGame(){
+    this.data = [{},{}];
+  }
+
+  moveA3toB4(){
+      this.data = [{},{
+                "G1": "RED_PIECE",
+                "H2": "RED_PIECE",
+                "E1": "RED_PIECE",
+                "F2": "RED_PIECE",
+                "G3": "RED_PIECE",
+                "C1": "RED_PIECE",
+                "D2": "RED_PIECE",
+                "E3": "RED_PIECE",
+                "H6": "BLACK_PIECE",
+                "A1": "RED_PIECE",
+                "B2": "RED_PIECE",
+                "C3": "RED_PIECE",
+                "F6": "BLACK_PIECE",
+                "G7": "BLACK_PIECE",
+                "H8": "BLACK_PIECE",
+                "B4": "RED_PIECE",
+                "D6": "BLACK_PIECE",
+                "E7": "BLACK_PIECE",
+                "F8": "BLACK_PIECE",
+                "B6": "BLACK_PIECE",
+                "C7": "BLACK_PIECE",
+                "D8": "BLACK_PIECE",
+                "A7": "BLACK_PIECE",
+                "B8": "BLACK_PIECE"
+    }]
   }
 
   findPath(path:string):string{
