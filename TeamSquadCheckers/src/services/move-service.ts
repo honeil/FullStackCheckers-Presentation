@@ -10,13 +10,15 @@ export class MoveService {
     constructor(private http: Http){}
 
     submitMove(firstCoordinate: string, secondCoordinate: string) {
+
        console.log(this.url);
         this.data = JSON.stringify({
             "firstCoordinate": firstCoordinate,
             "secondCoordinate": secondCoordinate
         });
         console.log('Before post');
-
+        console.log(this.data);
+        console.log(this.url);
         this.http.post(this.url, this.data).subscribe(response => {
             this.responseData = response.json();
             console.log(this.responseData);
