@@ -52,7 +52,7 @@
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl' id='C7'(click)='toggleImage($event)'>
-        <img *ngIf = 'showImage13' src = {{gamepiece}}>
+        <img src = {{gamepiece}}>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl' id='E7'>
@@ -117,51 +117,60 @@
       <ion-row>
 <!--        <ion-col class ='y'>3</ion-col> -->
       <ion-col class ='bl' id='A3'(click)='toggleImage($event)'>
-        <img *ngIf = 'showImage6' src = {{gamepiece}}>
+        <the-checker *ngIf='showImage9'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl' id='C3' (click)='toggleImage($event)'>
-        <img *ngIf = 'showImage5' src = {{gamepiece}}>
+        <the-checker *ngIf='showImage10'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='E3'></ion-col>
+      <ion-col class ='bl' id='E3'>
+        <the-checker *ngIf='showImage11'></the-checker>
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='G3'></ion-col>
+      <ion-col class ='bl' id='G3'>
+        <the-checker *ngIf='showImage12'></the-checker>
+      </ion-col>
       <ion-col class ='wh'></ion-col>
  <!--         <ion-col class ='y'>3</ion-col> -->
       </ion-row>
     <ion-row>
 <!--      <ion-col class ='y'>2</ion-col> -->
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='B2' (click)='toggleImage($event)'>
-        <img *ngIf = 'showImage4' src = {{gamepiece}}>
+      <ion-col class ='bl'id='B2' (click)='showChecker()'>
+        <the-checker *ngIf='showImage5'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='D2' (click)='toggleImage($event)'>
-        <img *ngIf = 'showImage3' src = {{gamepiece}}>
+        <the-checker *ngIf='showImage6'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='F2'>
+        <the-checker *ngIf='showImage7'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='H2' (click)='toggleImage($event)'>
-        <img *ngIf = 'showImage2' src = {{gamepiece}}>
+        <the-checker *ngIf='showImage8'></the-checker>
       </ion-col>
  <!--     <ion-col class ='y'>2</ion-col> -->
   </ion-row>
       <ion-row>
  <!--       <ion-col class ='y'>1</ion-col> -->
       <ion-col class ='bl'id='A1' (click)='toggleImage($event)'>
-        <img *ngIf = 'showImage1' src = '../../assets/Black.png'>
+        <the-checker *ngIf='showImage1'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='C1' (click)='addBlackPiece($event)'>
+        <the-checker *ngIf='showImage2'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
       <ion-col class ='bl'id='E1' (click)='addBlackPiece($event)'>
+        <the-checker *ngIf='showImage3'></the-checker>
       </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='G1' (click)='addBlackPiece($event)'></ion-col>
+      <ion-col class ='bl'id='G1' (click)='addBlackPiece($event)'>
+        <the-checker *ngIf='showImage4'></the-checker>
+      </ion-col>
       <ion-col class ='wh' ></ion-col>
 <!--          <ion-col class ='y'>1</ion-col> -->
       </ion-row>

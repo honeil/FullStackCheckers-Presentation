@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
 import { CheckerboardPage } from '../pages/checkerboard/checkerboard';
+import { Checker } from '../../checker/checker.component';
 
 @Component({
   templateUrl: 'app.html'

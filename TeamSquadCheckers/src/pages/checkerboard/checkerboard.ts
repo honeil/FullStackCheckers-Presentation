@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { RedChecker } from '../../assets/red-checker.component';
+import { BlackChecker } from '../../assets/black-checker.component';
 
 import { MoveService } from '../../services/move-service';
 
@@ -15,11 +17,11 @@ import { MoveService } from '../../services/move-service';
 })
 export class CheckerboardPage {
 
-  showImage: boolean = false;
-  showImage1: boolean = false;
+  showImage: boolean = true;
+  showImage1: boolean = true;
   showImage2: boolean = false;
   showImage3: boolean = false;
-  showImage4: boolean = false;
+  showImage4: boolean = true;
   showImage5: boolean = false;
   showImage6: boolean = false;
   showImage7: boolean = false;
@@ -71,6 +73,11 @@ export class CheckerboardPage {
 
     toggleImage(e): void{
       this.showImage = !this.showImage;
+    }
+
+    showChecker(){
+      console.log("hi milton");
+      this.showImage5 = !this.showImage5;
     }
 
   }
