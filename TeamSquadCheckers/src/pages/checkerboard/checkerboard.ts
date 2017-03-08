@@ -30,17 +30,11 @@ export class CheckerboardPage {
   captureCoordinate(event){
     if (this.firstCoordinate == undefined){
       this.firstCoordinate = event;
-      console.log(this.firstCoordinate);
-      console.log(this.secondCoordinate);
     } else if (event == this.firstCoordinate) { 
       this.firstCoordinate = undefined;
-      console.log(this.firstCoordinate);
-      console.log(this.secondCoordinate);
     } else {
       console.log("assigning 2nd coor");
       this.secondCoordinate = event;
-      console.log(this.firstCoordinate);
-      console.log(this.secondCoordinate);
       this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate);
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;

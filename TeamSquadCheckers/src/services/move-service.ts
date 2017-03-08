@@ -11,17 +11,13 @@ export class MoveService {
 
     submitMove(firstCoordinate: string, secondCoordinate: string) {
 
-       console.log(this.url);
-        this.data = JSON.stringify({
+        this.data = {
             "firstCoordinate": firstCoordinate,
             "secondCoordinate": secondCoordinate
-        });
-        console.log('Before post');
-        console.log(this.data);
-        console.log(this.url);
+        };
+
         this.http.post(this.url, this.data).subscribe(response => {
             this.responseData = response.json();
-            console.log(this.responseData);
         });
     }
 }
