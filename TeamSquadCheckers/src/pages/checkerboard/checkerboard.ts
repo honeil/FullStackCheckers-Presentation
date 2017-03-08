@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { MoveService } from '../../services/move-service';
@@ -11,42 +11,19 @@ import { MoveService } from '../../services/move-service';
 */
 @Component({
   selector: 'page-checkerboard',
-  templateUrl: 'checkerboard.html'
+  templateUrl: 'checkerboard.html',
+  providers: [MoveService]
 })
-export class CheckerboardPage {
-  data:any[] = 
-[
-  {
-    "isPlayerMove": true
-  },
-  {
-    "G1": "RED_PIECE",
-    "H2": "RED_PIECE",
-    "E1": "RED_PIECE",
-    "F2": "RED_PIECE",
-    "G3": "RED_PIECE",
-    "C1": "RED_PIECE",
-    "D2": "RED_PIECE",
-    "E3": "RED_PIECE",
-    "H6": "BLACK_PIECE",
-    "A1": "RED_PIECE",
-    "B2": "RED_PIECE",
-    "C3": "RED_PIECE",
-    "F6": "BLACK_PIECE",
-    "G7": "BLACK_PIECE",
-    "H8": "BLACK_PIECE",
-    "A3": "RED_PIECE",
-    "D6": "BLACK_PIECE",
-    "E7": "BLACK_PIECE",
-    "F8": "BLACK_PIECE",
-    "B6": "BLACK_PIECE",
-    "C7": "BLACK_PIECE",
-    "D8": "BLACK_PIECE",
-    "A7": "BLACK_PIECE",
-    "B8": "BLACK_PIECE"
-  }
-]
+
+export class CheckerboardPage implements OnInit{
+public data: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
+  }
+
+  ngOnInit(){
+    this.data = this.moveService.getInitialState();
+    console.log("initialized");
+    console.log(this.data);
   }
 
   findPath(path:string):string{
@@ -60,13 +37,19 @@ export class CheckerboardPage {
   }
   
   ionViewDidLoad() {
+    console.log(this.data);
+
     console.log('ionViewDidLoad CheckerboardPage');
   }
 
   testMoveService(){
-    this.moveService.submitMove('A1', 'B2');
-    console.log('Move submitted');
+    this.moveService.submitMove('C3', 'D4');
+    console.log("Assignment successful: ");
+    console.log("data got to checkerboard: ");
+    console.log(this.moveService.responseData);
+
   }
+
   onClick(event){
     let firstCoordinate: any; 
     let secondCoordinate: any;
@@ -89,22 +72,6 @@ export class CheckerboardPage {
                img.parentNode.removeChild(img);
             });
     }
-/*
-    toggleImage(e): void{
-      this.showImage = !this.showImage;
-    }
-
-  }
-
-//doesn't work
-  removeBlackPiece(e){
-    var img = document.createElement('img');
-    img.src = '../assets/Black.png';
-    console.log(e.target.id);
-    document.getElementById(e.target.id).removeChild(img);
-  }
-
-*/
   
   
 }
