@@ -14,17 +14,47 @@ import { MoveService } from '../../services/move-service';
   templateUrl: 'checkerboard.html'
 })
 export class CheckerboardPage {
-  gamepiece: string = '../../assets/Black.png';
-  gameMoves: any[] = [{
-    location: "A1" , piece: '../../assets/Red.png'
+  data:any[] = 
+[
+  {
+    "isPlayerMove": true
+  },
+  {
+    "G1": "RED_PIECE",
+    "H2": "RED_PIECE",
+    "E1": "RED_PIECE",
+    "F2": "RED_PIECE",
+    "G3": "RED_PIECE",
+    "C1": "RED_PIECE",
+    "D2": "RED_PIECE",
+    "E3": "RED_PIECE",
+    "H6": "BLACK_PIECE",
+    "A1": "RED_PIECE",
+    "B2": "RED_PIECE",
+    "C3": "RED_PIECE",
+    "F6": "BLACK_PIECE",
+    "G7": "BLACK_PIECE",
+    "H8": "BLACK_PIECE",
+    "A3": "RED_PIECE",
+    "D6": "BLACK_PIECE",
+    "E7": "BLACK_PIECE",
+    "F8": "BLACK_PIECE",
+    "B6": "BLACK_PIECE",
+    "C7": "BLACK_PIECE",
+    "D8": "BLACK_PIECE",
+    "A7": "BLACK_PIECE",
+    "B8": "BLACK_PIECE"
   }
-  ]
-
-
-  
-
-
+]
   constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
+  }
+
+  findPath(path:string):string{
+    if(path == "RED_PIECE"){
+      return '../assets/Red.png';
+    } else if (path == "BLACK_PIECE") {
+      return '../assets/Black.png';
+    }
   }
   
   ionViewDidLoad() {
