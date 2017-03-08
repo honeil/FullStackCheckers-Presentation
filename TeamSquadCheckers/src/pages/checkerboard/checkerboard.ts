@@ -37,4 +37,12 @@ export class CheckerboardPage {
       secondCoordinate == event.id;
     }
   }
+
+  addBlackPiece(){
+    var img = document.createElement('img');
+    img.src = '../assets/Black.png';
+    document.getElementById("C1").appendChild(img);
+  }
+
+  
 }
