@@ -15,6 +15,26 @@ import { MoveService } from '../../services/move-service';
 })
 export class CheckerboardPage {
 
+  showImage: boolean = false;
+  showImage1: boolean = false;
+  showImage2: boolean = false;
+  showImage3: boolean = false;
+  showImage4: boolean = false;
+  showImage5: boolean = false;
+  showImage6: boolean = false;
+  showImage7: boolean = false;
+  showImage8: boolean = false;
+  showImage9: boolean = false;
+  showImage10: boolean = false;
+  showImage11: boolean = false;
+  showImage12: boolean = false;
+  showImage13: boolean = false;
+  showImage14: boolean = false;
+  showImage15: boolean = false;
+  gamepiece: string = '../../assets/Black.png';
+  
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
   }
   
@@ -38,11 +58,38 @@ export class CheckerboardPage {
     }
   }
 
-  addBlackPiece(){
+  addBlackPiece(e){
     var img = document.createElement('img');
     img.src = '../assets/Black.png';
-    document.getElementById("C1").appendChild(img);
+    console.log(e.target.id);
+    document.getElementById(e.target.id).appendChild(img);
+    
+    img.addEventListener("click", function() {
+               img.parentNode.removeChild(img);
+            });
+    }
+
+    toggleImage(e): void{
+      this.showImage = !this.showImage;
+    }
+
   }
 
+/* doesn't work
+  removeBlackPiece(e){
+    var img = document.createElement('img');
+    img.src = '../assets/Black.png';
+    console.log(e.target.id);
+    document.getElementById(e.target.id).removeChild(img);
+  }
+
+*/
   
-}
+  
+
+
+
+
+
+
+
