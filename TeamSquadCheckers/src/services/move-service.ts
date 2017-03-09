@@ -3,25 +3,37 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class MoveService {
-    private data: any;
-    private responseData: any;
-    private url: string = "http://127.0.0.1:8080/movePiece";
+    public data: any;
+    responseData: any = [{},{}];
+    private url: string = "http://127.0.0.1:8080/playerMove";
+    private initUrl: string = "http://127.0.0.1:8080/start";
 
-    constructor(private http: Http){}
+      initialState:any ;
+
+    constructor(private http: Http){
+    }
+
+    getInitialState(){
+        return this.http.get(this.initUrl);
+    }
 
     submitMove(firstCoordinate: string, secondCoordinate: string) {
+
         this.data = {
-  "xPositionInitial": 0,
-  "yPositionInitial": 0,
-  "xPositionDesired": 1,
-  "yPositionDesired": 1
+            "firstCoordinate": firstCoordinate,
+            "secondCoordinate": secondCoordinate
         };
 
-        console.log(this.data);
-        console.log(this.url);
-        this.http.post(this.url, this.data).subscribe(response => {
-            this.responseData = response.json();
-            console.log(this.responseData);
-        });
+        console.log("Before new data: ")
+        // this.http.post(this.url, this.data).subscribe(response => {
+        //     this.responseData = response.json();
+        //     console.log("in response data: ");
+        //     console.log(this.responseData);
+        //     console.log("\n new data! \n");
+        // });
+
+
+        // return this.responseData;
+        return this.http.post(this.url, this.data);
     }
 }

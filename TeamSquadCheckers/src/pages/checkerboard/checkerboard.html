@@ -14,42 +14,51 @@
 
 
 <ion-content padding>
-      <button (click)='testMoveService()'>Test</button>
+      <button ion-button (click)='initGame()'>Test New Game</button>
+      <button ion-button (click)='stopGame()'>Test Stop Game</button>
+      <button ion-button (click)='moveA3toB4()'>Test Move Hard code</button>
+      <button ion-button (click)='fetchMoveService()'>Move Service Get Fetch</button>
+       <button ion-button (click)='testMoveService()'>Posting Test Fetch</button>     
 
   <ion-grid id='board'>
-<!--    <ion-row>
-      <ion-col class ='corner'></ion-col>
-      <ion-col class='x'>A</ion-col>
-      <ion-col class='x'>B</ion-col>
-      <ion-col class='x'>C</ion-col>
-      <ion-col class='x'>D</ion-col>
-      <ion-col class='x'>E</ion-col>
-      <ion-col class='x'>F</ion-col>
-      <ion-col class='x'>G</ion-col>
-      <ion-col class='x'>H</ion-col>
-      <ion-col class ='corner'></ion-col>
-    </ion-row> -->
+
     <ion-row>
 <!--      <ion-col class ='y'>8</ion-col> -->
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='B8'></ion-col>
+      <ion-col class ='bl' id='B8'(click)="captureCoordinate('B8')">
+          <img [src]="findPath(data[1].B8)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='D8'></ion-col>
+      <ion-col class ='bl' id='D8'(click)="captureCoordinate('D8')">
+          <img [src]="findPath(data[1].D8)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='F8'></ion-col>
+      <ion-col class ='bl' id='F8'(click)="captureCoordinate('F8')">
+          <img [src]="findPath(data[1].F8)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='H8'></ion-col>
+      <ion-col class ='bl' id='H8'(click)="captureCoordinate('H8')">
+        <img [src]="findPath(data[1].H8)">
+      </ion-col>
 <!--      <ion-col class ='y'>8</ion-col> -->
   </ion-row>
       <ion-row>
  <!--       <ion-col class ='y'>7</ion-col> -->
-      <ion-col class ='bl'id='A7'></ion-col>
+      <ion-col class ='bl'id='A7'(click)="captureCoordinate('A7')">
+          <img [src]="findPath(data[1].A7)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='C7'></ion-col>
+      <ion-col class ='bl' id='C7'(click)="captureCoordinate('C7')">
+          <img [src]="findPath(data[1].C7)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='E7'></ion-col>
+      <ion-col class ='bl' id='E7'(click)="captureCoordinate('E7')">
+          <img [src]="findPath(data[1].E7)"> 
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='G7'></ion-col>
+      <ion-col class ='bl' id='G7'(click)="captureCoordinate('G7')">
+                <img [src]="findPath(data[1].G7)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
  <!--         <ion-col class ='y'>7</ion-col> -->
       </ion-row>
@@ -57,86 +66,122 @@
     <ion-row>
 <!--      <ion-col class ='y'>6</ion-col> -->
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='B6'></ion-col>
+      <ion-col class ='bl' id='B6'(click)="captureCoordinate('B6')">
+        <img [src]="findPath(data[1].B6)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='D6'></ion-col>
+      <ion-col class ='bl' id='D6'(click)="captureCoordinate('D6')">
+        <img [src]="findPath(data[1].D6)">  
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='F6'></ion-col>
+      <ion-col class ='bl' id='F6'(click)="captureCoordinate('F6')">
+          <img [src]="findPath(data[1].F6)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='H6'></ion-col>
+      <ion-col class ='bl' id='H6'(click)="captureCoordinate('H6')">
+                <img [src]="findPath(data[1].H6)">
+      </ion-col>
 <!--      <ion-col class ='y'>6</ion-col> -->
   </ion-row>
       <ion-row>
 <!--        <ion-col class ='y'>5</ion-col> -->
-      <ion-col class ='bl' id='A5'></ion-col>
+      <ion-col class ='bl' id='A5'(click)="captureCoordinate('A5')">        
+        <img [src]="findPath(data[1].A5)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='C5'></ion-col>
+      <ion-col class ='bl' id='C5'(click)="captureCoordinate('C5')">        
+          <img [src]="findPath(data[1].C5)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='E5'></ion-col>
+      <ion-col class ='bl' id='E5'(click)="captureCoordinate('E5')">
+          <img [src]="findPath(data[1].E5)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='G5'></ion-col>
+      <ion-col class ='bl' id='G5'(click)="captureCoordinate('G5')">
+          <img [src]="findPath(data[1].G5)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
  <!--         <ion-col class ='y'>5</ion-col> -->
       </ion-row>
     <ion-row>
  <!--     <ion-col class ='y'>4</ion-col> -->
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='B4'></ion-col>
+      <ion-col class ='bl' id='B4'(click)="captureCoordinate('B4')">
+          <img [src]="findPath(data[1].B4)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='D4'></ion-col>
+      <ion-col class ='bl' id='D4'(click)="captureCoordinate('D4')">
+          <img [src]="findPath(data[1].D4)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='F4'></ion-col>
+      <ion-col class ='bl' id='F4'(click)="captureCoordinate('F4')">
+          <img [src]="findPath(data[1].F4)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='H4'></ion-col>
+      <ion-col class ='bl' id='H4'(click)="captureCoordinate('H4')">
+          <img [src]="findPath(data[1].H4)">
+      </ion-col>
 <!--      <ion-col class ='y'>4</ion-col> -->
   </ion-row>
       <ion-row>
 <!--        <ion-col class ='y'>3</ion-col> -->
-      <ion-col class ='bl' id='A3'></ion-col>
+      <ion-col class ='bl' id='A3'(click)="captureCoordinate('A3')">
+          <img [src]="findPath(data[1].A3)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='C3'></ion-col>
+      <ion-col class ='bl' id='C3'(click)="captureCoordinate('C3')">
+        <img [src]="findPath(data[1].C3)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='E3'></ion-col>
+      <ion-col class ='bl' id='E3'(click)="captureCoordinate('E3')">
+        <img [src]="findPath(data[1].E3)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl' id='G3'></ion-col>
+      <ion-col class ='bl' id='G3'(click)="captureCoordinate('G3')">
+         <img [src]="findPath(data[1].G3)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
  <!--         <ion-col class ='y'>3</ion-col> -->
       </ion-row>
     <ion-row>
 <!--      <ion-col class ='y'>2</ion-col> -->
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='B2'></ion-col>
+      <ion-col class ='bl'id='B2'(click)="captureCoordinate('B2')">
+        <img [src]="findPath(data[1].B2)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='D2'></ion-col>
+      <ion-col class ='bl'id='D2'(click)="captureCoordinate('D2')">
+        <img [src]="findPath(data[1].D2)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='F2'></ion-col>
+      <ion-col class ='bl'id='F2'(click)="captureCoordinate('F2')">
+       <img [src]="findPath(data[1].F2)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='H2'></ion-col>
+      <ion-col class ='bl'id='H2'(click)="captureCoordinate('H2')">
+        <img [src]="findPath(data[1].H2)">
+      </ion-col>
  <!--     <ion-col class ='y'>2</ion-col> -->
   </ion-row>
       <ion-row>
  <!--       <ion-col class ='y'>1</ion-col> -->
-      <ion-col class ='bl'id='A1'></ion-col>
+      <ion-col class ='bl'id='A1'(click)="captureCoordinate('A1')">
+                <img [src]="findPath(data[1].A1)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='C1'></ion-col>
+      <ion-col class ='bl'id='C1' (click)="captureCoordinate('C1')">
+        <img [src]="findPath(data[1].C1)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='E1'></ion-col>
+      <ion-col class ='bl'id='E1' (click)="captureCoordinate('E1')">
+      <img [src]="findPath(data[1].E1)">
+      </ion-col>
       <ion-col class ='wh'></ion-col>
-      <ion-col class ='bl'id='G1'></ion-col>
+      <ion-col class ='bl'id='G1' (click)="captureCoordinate('G1')">
+        <img [src]="findPath(data[1].G1)">
+      </ion-col>
       <ion-col class ='wh' ></ion-col>
 <!--          <ion-col class ='y'>1</ion-col> -->
-      </ion-row>
- <!--         <ion-row>
-      <ion-col class ='corner'></ion-col>      
-      <ion-col class='x'>A</ion-col>
-      <ion-col class='x'>B</ion-col>
-      <ion-col class='x'>C</ion-col>
-      <ion-col class='x'>D</ion-col>
-      <ion-col class='x'>E</ion-col>
-      <ion-col class='x'>F</ion-col>
-      <ion-col class='x'>G</ion-col>
-      <ion-col class='x'>H</ion-col>
-      <ion-col class ='corner'></ion-col>
-    </ion-row> -->
-      </ion-grid>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -9,7 +9,7 @@ import { CheckerboardPage } from '../pages/checkerboard/checkerboard';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = HomePage;
+  rootPage = CheckerboardPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

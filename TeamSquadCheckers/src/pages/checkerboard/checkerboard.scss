@@ -1,19 +1,19 @@
 page-checkerboard {
-            #board, .bl, .wh {
-	            display:block;
+            #board,ion-grid ion-col{
+                box-sizing: border-box;
 	            padding:0px;
 	            margin:0px;
             }
 			#board {
                     width: 100%;
-					
 					border: 2px solid grey;
                     background-color: slategrey;
 					}
 
 			ion-grid ion-col{
-                width: 50px;
+                box-sizing: border-box;
                 height: 50px;
+                width: 50px;
                 border: .5px solid black;
                 float: left;
             }		
