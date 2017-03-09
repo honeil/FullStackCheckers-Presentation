@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class MoveService {
     public data: any;
-    responseData: any;
+    responseData: any = [{},{}];
     private url: string = "http://127.0.0.1:8080/playerMove";
     private initUrl: string = "http://127.0.0.1:8080/start";
 
@@ -14,12 +14,7 @@ export class MoveService {
     }
 
     getInitialState(){
-        this.http.get(this.initUrl).subscribe(response => {
-            this.responseData = response.json();
-            console.log("got data from HTTP");
-        });
-        
-        return this.responseData;
+        return this.http.get(this.initUrl);
     }
 
 
@@ -29,13 +24,14 @@ export class MoveService {
             "secondCoordinate": secondCoordinate
         };
         console.log("Before new data: ")
-        this.http.post(this.url, this.data).subscribe(response => {
-            this.responseData = response.json();
-            console.log("in response data: ");
-            console.log(this.responseData);
-            console.log("\n new data! \n");
-        });
+        // this.http.post(this.url, this.data).subscribe(response => {
+        //     this.responseData = response.json();
+        //     console.log("in response data: ");
+        //     console.log(this.responseData);
+        //     console.log("\n new data! \n");
+        // });
 
-        return this.responseData;
+        // return this.responseData;
+        return this.http.post(this.url, this.data);
     }
 }

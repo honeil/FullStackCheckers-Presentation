@@ -86,7 +86,9 @@ public data: any;
   }
 
   fetchMoveService(){
-    this.data = this.moveService.getInitialState();
+        this.moveService.getInitialState().subscribe(response => {
+            this.data = response.json();
+        });;
   }
 
   findPath(path:string):string{
@@ -106,7 +108,9 @@ public data: any;
   }
 
   testMoveService(){
-    this.data = this.moveService.submitMove('C3', 'D4');
+    this.moveService.submitMove('C3', 'D4').subscribe(response => {
+      this.data = response.json();
+    });
     console.log("Assignment successful: ");
     console.log("data got to checkerboard: ");
     console.log(this.moveService.responseData);
