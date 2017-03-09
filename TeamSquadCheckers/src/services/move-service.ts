@@ -23,14 +23,7 @@ export class MoveService {
             "firstCoordinate": firstCoordinate,
             "secondCoordinate": secondCoordinate
         };
-<<<<<<< HEAD
 
-        this.http.post(this.url, this.data).subscribe(response => {
-            this.responseData = response.json();
-            console.log(this.responseData)
-            
-        });
-=======
         console.log("Before new data: ")
         // this.http.post(this.url, this.data).subscribe(response => {
         //     this.responseData = response.json();
@@ -38,7 +31,7 @@ export class MoveService {
         //     console.log(this.responseData);
         //     console.log("\n new data! \n");
         // });
->>>>>>> origin/bbcgarbage
+
 
         // return this.responseData;
         return this.http.post(this.url, this.data);

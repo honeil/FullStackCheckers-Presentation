@@ -129,7 +129,10 @@ export class CheckerboardPage implements OnInit{
       this.secondCoordinate = event;
       console.log("before sending  coor " + this.firstCoordinate  + " , " + this.secondCoordinate);
 
-      this.data = this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate);
+      this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate)
+                      .subscribe(response => {
+                      this.data = response.json();
+    });
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
     }
