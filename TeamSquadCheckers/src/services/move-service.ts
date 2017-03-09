@@ -32,6 +32,7 @@ export class MoveService {
         this.http.post(this.url, this.data).subscribe(response => {
             this.responseData = response.json();
             console.log(this.responseData)
+            
         });
 
         return this.responseData;
