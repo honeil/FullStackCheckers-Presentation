@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { MoveService } from '../../services/move-service';
@@ -11,22 +11,48 @@ import { MoveService } from '../../services/move-service';
 */
 @Component({
   selector: 'page-checkerboard',
-  templateUrl: 'checkerboard.html'
+  templateUrl: 'checkerboard.html',
+  providers: [MoveService]
 })
-export class CheckerboardPage {
+
+export class CheckerboardPage implements OnInit{
     public firstCoordinate: any; 
     public secondCoordinate: any;
+    public data: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
+  }
+
+  ngOnInit(){
+    this.data = this.moveService.getInitialState();
+    console.log("initialized");
+    console.log(this.data);
+  }
+
+  findPath(path:string):string{
+    if(path == "RED_PIECE"){
+      return '../assets/Red.png';
+    } else if (path == "BLACK_PIECE") {
+      return '../assets/Black.png';
+    } else {
+      return '';
+    }
   }
   
   ionViewDidLoad() {
+    console.log(this.data);
+
     console.log('ionViewDidLoad CheckerboardPage');
   }
 
   testMoveService(){
-    this.moveService.submitMove('A1', 'B2');
-    console.log('Move submitted');
+    this.moveService.submitMove('C3', 'D4');
+    console.log("Assignment successful: ");
+    console.log("data got to checkerboard: ");
+    console.log(this.moveService.responseData);
+
   }
+
   captureCoordinate(event){
     if (this.firstCoordinate == undefined){
       this.firstCoordinate = event;
@@ -41,4 +67,23 @@ export class CheckerboardPage {
       this.secondCoordinate = undefined;
     }
   }
+
+  addBlackPiece(e){
+    var img = document.createElement('img');
+    img.src = '../assets/Red.png';
+    console.log(e.target.id);
+    document.getElementById(e.target.id).appendChild(img);
+    
+    img.addEventListener("click", function() {
+               img.parentNode.removeChild(img);
+            });
+    }
+  
+  
 }
+
+
+
+
+
+
