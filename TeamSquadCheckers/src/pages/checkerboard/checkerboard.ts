@@ -85,6 +85,10 @@ public data: any;
     }]
   }
 
+  fetchMoveService(){
+    this.data = this.moveService.getInitialState();
+  }
+
   findPath(path:string):string{
     if(path == "RED_PIECE"){
       return '../assets/Red.png';
@@ -102,7 +106,7 @@ public data: any;
   }
 
   testMoveService(){
-    this.moveService.submitMove('C3', 'D4');
+    this.data = this.moveService.submitMove('C3', 'D4');
     console.log("Assignment successful: ");
     console.log("data got to checkerboard: ");
     console.log(this.moveService.responseData);
