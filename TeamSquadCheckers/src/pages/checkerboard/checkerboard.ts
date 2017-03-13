@@ -121,6 +121,7 @@ export class CheckerboardPage implements OnInit{
   }
 
   captureCoordinate(event){
+    console.log(this.isPlayerTurn);
    if (this.isPlayerTurn){ 
     if (this.firstCoordinate == undefined){
       this.firstCoordinate = event;
@@ -133,11 +134,11 @@ export class CheckerboardPage implements OnInit{
       this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate)
                       .subscribe(response => {
                       this.data = response.json();
-    });
+                      this.isPlayerTurn = this.data[0].isPlayerMove;
+   });
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
-      this.isPlayerTurn = this.data[0].isPlayerMove;
-      console.log(this.isPlayerTurn);
+
     }
    }
 }
