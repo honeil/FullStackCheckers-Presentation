@@ -18,7 +18,7 @@ export class CheckerboardPage implements OnInit{
     public firstCoordinate: any; 
     public secondCoordinate: any;
     public data: any;
-
+    public isPlayerTurn = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
   }
 
@@ -121,6 +121,8 @@ export class CheckerboardPage implements OnInit{
   }
 
   captureCoordinate(event){
+    console.log(this.isPlayerTurn);
+   if (this.isPlayerTurn){ 
     if (this.firstCoordinate == undefined){
       this.firstCoordinate = event;
     } else if (event == this.firstCoordinate) { 
@@ -132,11 +134,14 @@ export class CheckerboardPage implements OnInit{
       this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate)
                       .subscribe(response => {
                       this.data = response.json();
-    });
+                      this.isPlayerTurn = this.data[0].isPlayerMove;
+   });
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
+
     }
-  }
+   }
+}
 
   addBlackPiece(e){
     var img = document.createElement('img');
