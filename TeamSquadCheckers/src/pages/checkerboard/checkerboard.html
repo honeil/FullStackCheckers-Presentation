@@ -184,4 +184,12 @@
 <!--          <ion-col class ='y'>1</ion-col> -->
     </ion-row>
   </ion-grid>
+
+  <ion-card *ngIf ="data[0].isPlayerMove">
+      <h1>Your turn!</h1>
+  </ion-card>
+
+  <ion-card *ngIf ="!data[0].isPlayerMove">
+      <h1>Wait a sec.. It's the computer's turn.</h1>
+  </ion-card>
 </ion-content>

@@ -142,18 +142,6 @@ export class CheckerboardPage implements OnInit{
     }
    }
 }
-
-  addBlackPiece(e){
-    var img = document.createElement('img');
-    img.src = '../assets/Red.png';
-    console.log(e.target.id);
-    document.getElementById(e.target.id).appendChild(img);
-    
-    img.addEventListener("click", function() {
-               img.parentNode.removeChild(img);
-            });
-    }
-  
   
 }
 
