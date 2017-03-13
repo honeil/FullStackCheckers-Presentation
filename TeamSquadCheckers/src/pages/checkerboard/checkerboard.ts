@@ -26,6 +26,12 @@ export class CheckerboardPage implements OnInit{
     this.data = [{},{}];
   }
 
+  getNPCMoveService(){
+        this.moveService.getNPCMoveState().subscribe(response => {
+            this.data = response.json();
+        });
+  }
+
   initGame(){
     this.data = [{},{
                 "G1": "RED_PIECE",
@@ -91,7 +97,7 @@ export class CheckerboardPage implements OnInit{
   fetchMoveService(){
         this.moveService.getInitialState().subscribe(response => {
             this.data = response.json();
-        });;
+        });
   }
 
   findPath(path:string):string{
