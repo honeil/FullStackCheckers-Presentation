@@ -91,6 +91,8 @@ export class CheckerboardPage implements OnInit{
   fetchMoveService(){
         this.moveService.getInitialState().subscribe(response => {
             this.data = response.json();
+            this.isPlayerTurn = this.data[0].isPlayerMove;
+            console.log(this.isPlayerTurn);
         });;
   }
 
@@ -138,6 +140,11 @@ export class CheckerboardPage implements OnInit{
    });
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
+      this.moveService.npcMove()
+                      .subscribe(response => {
+                        this.data = response.json();
+                        this.isPlayerTurn = this.data[0].isPlayerMove;
+                      });
 
     }
    }

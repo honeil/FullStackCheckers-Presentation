@@ -7,8 +7,9 @@ export class MoveService {
     responseData: any = [{},{}];
     private url: string = "http://127.0.0.1:8080/playerMove";
     private initUrl: string = "http://127.0.0.1:8080/start";
+    private npcUrl: string = "http://127.0.0.1:8080/npcMove";
+    initialState:any ;
 
-      initialState:any ;
 
     constructor(private http: Http){
     }
@@ -35,5 +36,13 @@ export class MoveService {
 
         // return this.responseData;
         return this.http.post(this.url, this.data);
+    }
+
+    npcMove() {
+        console.log('just started npcMove');
+        setTimeout(() => {
+            console.log('delay call');
+        }, 2000);  
+        return this.http.get(this.npcUrl);
     }
 }
