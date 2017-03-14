@@ -97,12 +97,22 @@ export class CheckerboardPage implements OnInit{
   }
 
   findPath(path:string):string{
-    if(path == "RED_PIECE"){
-      return '../assets/Red.png';
-    } else if (path == "BLACK_PIECE") {
-      return '../assets/Black.png';
-    } else {
-      return '';
+    switch(path){
+      case "RED_PIECE": {
+        return '../assets/Red.png';
+      }
+      case "BLACK_PIECE": {
+        return '../assets/Black.png';
+      }
+      case "RED_KING_PIECE": {
+        return '../assets/RedKing.png';
+      }
+      case "BLACK_KING_PIECE": {
+        return '../assets/BlackKing.png';
+      }
+      default: {
+        return '';
+      }
     }
   }
   
