@@ -40,9 +40,6 @@ export class MoveService {
 
     npcMove() {
         console.log('just started npcMove');
-        setTimeout(() => {
-            console.log('delay call');
-        }, 2000);  
         return this.http.get(this.npcUrl);
     }
 }

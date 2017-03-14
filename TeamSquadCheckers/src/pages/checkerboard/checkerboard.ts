@@ -140,12 +140,14 @@ export class CheckerboardPage implements OnInit{
    });
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
-      this.moveService.npcMove()
+      setTimeout(() => {
+                  this.moveService.npcMove()
                       .subscribe(response => {
-                        this.data = response.json();
-                        this.isPlayerTurn = this.data[0].isPlayerMove;
-                      });
-
+                  this.data = response.json();
+                  this.isPlayerTurn = this.data[0].isPlayerMove;
+                  }),
+               console.log('delay call');
+      }, 2000);  
     }
    }
 }
