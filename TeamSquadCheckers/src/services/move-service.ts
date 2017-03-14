@@ -24,17 +24,8 @@ export class MoveService {
             "firstCoordinate": firstCoordinate,
             "secondCoordinate": secondCoordinate
         };
-
         console.log("Before new data: ")
-        // this.http.post(this.url, this.data).subscribe(response => {
-        //     this.responseData = response.json();
-        //     console.log("in response data: ");
-        //     console.log(this.responseData);
-        //     console.log("\n new data! \n");
-        // });
 
-
-        // return this.responseData;
         return this.http.post(this.url, this.data);
     }
 
