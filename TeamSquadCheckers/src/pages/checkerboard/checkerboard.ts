@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { MoveService } from '../../services/move-service';
 
@@ -19,7 +19,7 @@ export class CheckerboardPage implements OnInit{
     public secondCoordinate: any;
     public data: any;
     public isPlayerTurn: boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService) {  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public moveService: MoveService, public alertCtrl: AlertController) {  
   }
 
   ngOnInit(){
@@ -92,7 +92,6 @@ export class CheckerboardPage implements OnInit{
         this.moveService.getInitialState().subscribe(response => {
             this.data = response.json();
             this.isPlayerTurn = this.data[0].isPlayerMove;
-          // this.whoHasWon = this.data[2].whoHasWon;
         });;
   }
 
@@ -132,6 +131,21 @@ export class CheckerboardPage implements OnInit{
 
   }
 
+  presentAlert() {
+  let alert = this.alertCtrl.create({
+    title: 'Game Over',
+   subTitle: this.data[2].whoHasWon + ' has won the game',
+    buttons: [
+      {
+        text: 'New Game',
+        handler: () => {
+          this.fetchMoveService();
+        }
+      }]
+  });
+  alert.present();  
+  }
+
   captureCoordinate(event){
    if (this.isPlayerTurn){ 
     if (this.firstCoordinate == undefined){
@@ -146,15 +160,20 @@ export class CheckerboardPage implements OnInit{
                       .subscribe(response => {
                         this.data = response.json();
                         this.isPlayerTurn = this.data[0].isPlayerMove;
-                        //if (this.data[2].whoHasWon != null)
-                        //  
+                        if (this.data[2].whoHasWon != null) {
+                          console.log(this.data[2].whoHasWon + " PC");
+                          this.presentAlert();
+                        }
                         if (!this.data[0].isPlayerMove){
                             setTimeout(() => {
                               this.moveService.npcMove()
                                   .subscribe(response => {
                                     this.data = response.json();
                                     this.isPlayerTurn = this.data[0].isPlayerMove;
-                                    //this.whoHasWon = this.data[2].whoHasWon;
+                                    if (this.data[2].whoHasWon != null){
+                                      console.log(this.data[2].whoHasWon + " NPC");
+                                      this.presentAlert();
+                                    }
                                   }),
                             console.log('delay call');
                             }, 2000);
