@@ -92,7 +92,7 @@ export class CheckerboardPage implements OnInit{
         this.moveService.getInitialState().subscribe(response => {
             this.data = response.json();
             this.isPlayerTurn = this.data[0].isPlayerMove;
-            console.log(this.isPlayerTurn);
+          // this.whoHasWon = this.data[2].whoHasWon;
         });;
   }
 
@@ -144,27 +144,27 @@ export class CheckerboardPage implements OnInit{
 
       this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate)
                       .subscribe(response => {
-                      this.data = response.json();
-                      this.isPlayerTurn = this.data[0].isPlayerMove;
-                      if (!this.data[0].isPlayerMove){
+                        this.data = response.json();
+                        this.isPlayerTurn = this.data[0].isPlayerMove;
+                        //if (this.data[2].whoHasWon != null)
+                        //  
+                        if (!this.data[0].isPlayerMove){
                             setTimeout(() => {
                               this.moveService.npcMove()
                                   .subscribe(response => {
-                              this.data = response.json();
-                              this.isPlayerTurn = this.data[0].isPlayerMove;
-                        }),
-                          console.log('delay call');
-                        }, 2000);
-      }  
-                      
-   });
+                                    this.data = response.json();
+                                    this.isPlayerTurn = this.data[0].isPlayerMove;
+                                    //this.whoHasWon = this.data[2].whoHasWon;
+                                  }),
+                            console.log('delay call');
+                            }, 2000);
+                        }  
+                      });
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
-
     }
    }
-}
-  
+  }
 }
 
 
