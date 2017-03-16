@@ -150,12 +150,18 @@ export class CheckerboardPage implements OnInit{
    if (this.isPlayerTurn){ 
     if (this.firstCoordinate == undefined){
       this.firstCoordinate = event;
+      document.getElementById(event).style["background-color"]= "yellow";
     } else if (event == this.firstCoordinate) { 
       this.firstCoordinate = undefined;
+      document.getElementById(this.firstCoordinate).style["background-color"]= "darkslategrey";
     } else {
+      document.getElementById(event).style["background-color"]= "yellow";
       this.secondCoordinate = event;
+      //document.getElementById(this.secondCoordinate).style["background-color"]= "yellow";
       console.log("before sending  coor " + this.firstCoordinate  + " , " + this.secondCoordinate);
       this.sendTurn();
+      document.getElementById(this.firstCoordinate).style["background-color"]= "darkslategrey";
+      document.getElementById(this.secondCoordinate).style["background-color"]= "darkslategrey";
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
     }
