@@ -155,34 +155,42 @@ export class CheckerboardPage implements OnInit{
     } else {
       this.secondCoordinate = event;
       console.log("before sending  coor " + this.firstCoordinate  + " , " + this.secondCoordinate);
-
-      this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate)
-                      .subscribe(response => {
-                        this.data = response.json();
-                        this.isPlayerTurn = this.data[0].isPlayerMove;
-                        if (this.data[2].whoHasWon != null) {
-                          console.log(this.data[2].whoHasWon + " PC");
-                          this.presentAlert();
-                        }
-                        if (!this.data[0].isPlayerMove){
-                            setTimeout(() => {
-                              this.moveService.npcMove()
-                                  .subscribe(response => {
-                                    this.data = response.json();
-                                    this.isPlayerTurn = this.data[0].isPlayerMove;
-                                    if (this.data[2].whoHasWon != null){
-                                      console.log(this.data[2].whoHasWon + " NPC");
-                                      this.presentAlert();
-                                    }
-                                  }),
-                            console.log('delay call');
-                            }, 2000);
-                        }  
-                      });
+      this.sendTurn();
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
     }
    }
+  }
+
+  isGameOver(){
+    if (this.data[2].whoHasWon != null) {
+      this.presentAlert();
+    } else {
+      this.isNPCTurn();
+    }
+  }
+
+  isNPCTurn(){
+    if (!this.data[0].isPlayerMove){
+      setTimeout(() => {
+        this.moveService.npcMove()
+            .subscribe(response => {
+              this.data = response.json();
+              this.isPlayerTurn = this.data[0].isPlayerMove;
+              this.isGameOver();
+            }),
+      console.log('delay call');
+      }, 2000);
+    }  
+  }
+
+  sendTurn(){
+    this.moveService.submitMove(this.firstCoordinate,this.secondCoordinate)
+                      .subscribe(response => {
+                        this.data = response.json();
+                        this.isPlayerTurn = this.data[0].isPlayerMove;
+                        this.isGameOver();
+                      });
   }
 }
 
