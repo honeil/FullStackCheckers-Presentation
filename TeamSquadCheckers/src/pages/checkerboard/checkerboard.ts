@@ -123,8 +123,8 @@ export class CheckerboardPage implements OnInit{
       this.firstCoordinate = event;
       document.getElementById(event).style["background-color"]= "yellow";
     } else if (event == this.firstCoordinate) { 
-      this.firstCoordinate = undefined;
       document.getElementById(this.firstCoordinate).style["background-color"]= "darkslategrey";
+      this.firstCoordinate = undefined;
     } else {
       document.getElementById(event).style["background-color"]= "yellow";
       this.secondCoordinate = event;
