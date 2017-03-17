@@ -3,12 +3,6 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { MoveService } from '../../services/move-service';
 
-/*
-  Generated class for the Checkerboard page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-checkerboard',
   templateUrl: 'checkerboard.html'
@@ -25,39 +19,7 @@ export class CheckerboardPage implements OnInit{
   ngOnInit(){
     this.data = [{},{}];
   }
-/*
-  initGame(){
-    this.data = [{},{
-                "G1": "RED_PIECE",
-                "H2": "RED_PIECE",
-                "E1": "RED_PIECE",
-                "F2": "RED_PIECE",
-                "G3": "RED_PIECE",
-                "C1": "RED_PIECE",
-                "D2": "RED_PIECE",
-                "E3": "RED_PIECE",
-                "H6": "BLACK_PIECE",
-                "A1": "RED_PIECE",
-                "B2": "RED_PIECE",
-                "C3": "RED_PIECE",
-                "F6": "BLACK_PIECE",
-                "G7": "BLACK_PIECE",
-                "H8": "BLACK_PIECE",
-                "A3": "RED_PIECE",
-                "D6": "BLACK_PIECE",
-                "E7": "BLACK_PIECE",
-                "F8": "BLACK_PIECE",
-                "B6": "BLACK_PIECE",
-                "C7": "BLACK_PIECE",
-                "D8": "BLACK_PIECE",
-                "A7": "BLACK_PIECE",
-                "B8": "BLACK_PIECE"
-    }]
-  }
-*/
-  stopGame(){
-    this.data = [{},{}];
-  }
+  
 
   fetchMoveService(){
         this.moveService.getInitialState().subscribe(response => {
@@ -92,16 +54,6 @@ export class CheckerboardPage implements OnInit{
     console.log('ionViewDidLoad CheckerboardPage');
   }
 
-  testMoveService(){
-    this.moveService.submitMove('C3', 'D4').subscribe(response => {
-      this.data = response.json();
-    });
-    console.log("Assignment successful: ");
-    console.log("data got to checkerboard: ");
-    console.log(this.moveService.responseData);
-
-  }
-
   presentAlert() {
   let alert = this.alertCtrl.create({
     title: 'Game Over',
@@ -126,12 +78,10 @@ export class CheckerboardPage implements OnInit{
       document.getElementById(this.firstCoordinate).style["background-color"]= "darkslategrey";
       this.firstCoordinate = undefined;
     } else {
-      document.getElementById(event).style["background-color"]= "yellow";
       this.secondCoordinate = event;
       console.log("before sending  coor " + this.firstCoordinate  + " , " + this.secondCoordinate);
       this.sendTurn();
       document.getElementById(this.firstCoordinate).style["background-color"]= "darkslategrey";
-      document.getElementById(this.secondCoordinate).style["background-color"]= "darkslategrey";
       this.firstCoordinate = undefined;
       this.secondCoordinate = undefined;
     }
