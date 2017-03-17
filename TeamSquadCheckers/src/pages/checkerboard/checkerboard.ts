@@ -128,7 +128,6 @@ export class CheckerboardPage implements OnInit{
     } else {
       document.getElementById(event).style["background-color"]= "yellow";
       this.secondCoordinate = event;
-      //document.getElementById(this.secondCoordinate).style["background-color"]= "yellow";
       console.log("before sending  coor " + this.firstCoordinate  + " , " + this.secondCoordinate);
       this.sendTurn();
       document.getElementById(this.firstCoordinate).style["background-color"]= "darkslategrey";
